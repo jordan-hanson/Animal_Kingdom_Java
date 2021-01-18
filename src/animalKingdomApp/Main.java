@@ -26,7 +26,24 @@ public class Main {
         animalsList.add(new Birds("Pigeon", 1837, "fly", "eggs", "lungs"));
         animalsList.add(new Fish("Salmon", 1758, "swim", "eggs", "gills"));
 
-//        System.out.println(animalsList);
+        animalsList.add(new Mammals("Zebra", 1778, "walk", "live births", "lungs"));
+        animalsList.add(new Mammals("Koala", 1816, "crawl", "live births", "lungs"));
+        animalsList.add(new Mammals("Sloth", 1804, "crawl", "live births", "lungs"));
+        animalsList.add(new Mammals("Armadillo", 1758, "crawl", "live births", "lungs"));
+        animalsList.add(new Mammals("Raccoon", 1758, "walk", "live births", "lungs"));
+
+        animalsList.add(new Birds("Peacock", 1821, "fly", "eggs", "lungs"));
+        animalsList.add(new Birds("Toucan", 1758, "fly", "eggs", "lungs"));
+        animalsList.add(new Birds("Parrot", 1824, "fly", "eggs", "lungs"));
+        animalsList.add(new Birds("Swan", 1758, "fly", "eggs", "lungs"));
+
+        animalsList.add(new Fish("Catfish", 1817, "swim", "eggs", "gills"));
+        animalsList.add(new Fish("Perch", 1758, "swim", "eggs", "gills"));
+
+
+
+        System.out.println(animalsList.size());
+        System.out.println("\n");
 
 //        for(int i = 0; i < mammalsList.size(); i++){
 ////            mammalsList.get(i).getBreath();
@@ -46,9 +63,32 @@ public class Main {
 
 //        printFilteredAnimals(mammalsList, (m) -> m.getDiscoveredYear() > 1800);
 
+//        printFilteredAnimals(animalsList, (a) -> a.getType() == "Mammal");
+//        System.out.println("\n");
+//
+//        printFilteredAnimals(animalsList, (a) -> a.getType() == "Birds");
+//        System.out.println("\n");
+//
+//        printFilteredAnimals(animalsList, (a) -> a.getType() == "Fish");
+//        System.out.println("\n");
+
+        System.out.println("MVP Requirements");
+
+        animalsList.sort( (a1, a2) -> (a1.getDiscoveredYear() < a2.getDiscoveredYear()) ? -1 : 1);
+
+//        animalsList.forEach( (Animals a) -> {System.out.println(a.getDiscoveredYear());} );
+        System.out.println("\n");
+
+
         printFilteredAnimals(animalsList, (a) -> a.getType() == "Mammal");
+        System.out.println("\n");
+
         printFilteredAnimals(animalsList, (a) -> a.getType() == "Birds");
+        System.out.println("\n");
+
         printFilteredAnimals(animalsList, (a) -> a.getType() == "Fish");
+        System.out.println("\n");
+
     }
 
     public static void printFilteredAnimals(List<Animals> animalsList, AnimalsTester animalsTester){
