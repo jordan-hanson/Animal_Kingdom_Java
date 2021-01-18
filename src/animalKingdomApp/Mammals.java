@@ -20,7 +20,7 @@ public class Mammals extends Animals{
     @Override
     public String toString() {
         String rtnStr = super.toString();
-        rtnStr += "\nName: " + name + " Discovered: " + discoveredYear + ".";
+        rtnStr += "\nName: " + name + " Discovered: " + discoveredYear + ".}";
         return rtnStr;
     }
 }

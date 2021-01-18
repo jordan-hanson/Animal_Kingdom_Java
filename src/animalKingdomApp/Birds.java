@@ -21,7 +21,7 @@ public class Birds extends Animals{
     @Override
     public String toString() {
         String rtnStng = super.toString();
-        rtnStng += "\nName: " + name + " Discovered: " + discoveredYear + ".";
+        rtnStng += "\nName: " + name + " Discovered: " + discoveredYear + ".}";
         return rtnStng;
     }
 }

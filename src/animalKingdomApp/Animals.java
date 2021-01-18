@@ -84,7 +84,7 @@ public abstract class Animals{
 
     @Override
     public String toString() {
-       String rtnString = "AnimalType: " + type + ".";
+       String rtnString = "Animals:{" + "AnimalType: " + type + ".";
         return rtnString;
     }
 }

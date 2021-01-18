@@ -9,7 +9,7 @@ public class Main {
 //        Mammals myMammal = new Mammals("Zebra", 1904, "walk", "live births", "Lungs");
 //        System.out.println(myMammal);
 
-//        List<Mammals> mammalsList = new ArrayList<Mammals>();
+//        ArrayList<Mammals> mammalsList = new ArrayList<Mammals>();
 //        mammalsList.add(new Mammals("Panda", 1869, "crawl", "live births", "lungs"));
 //        mammalsList.add(new Mammals("Zebra", 1778, "walk", "live births", "lungs"));
 //        mammalsList.add(new Mammals("Koala", 1816, "crawl", "live births", "lungs"));
@@ -20,7 +20,7 @@ public class Main {
 //        System.out.println(mammalsList.size());
 //        System.out.println(mammalsList);
 
-        List<Animals> animalsList = new ArrayList<Animals>();
+        ArrayList<Animals> animalsList = new ArrayList<Animals>();
 
         animalsList.add(new Mammals("Panda", 1869, "crawl", "live births", "lungs"));
         animalsList.add(new Birds("Pigeon", 1837, "fly", "eggs", "lungs"));
@@ -43,6 +43,9 @@ public class Main {
 
 
         System.out.println(animalsList.size());
+//        animalsList.forEach( (Mammals m) -> {
+//            System.out.println(m.getName());
+//        });
         System.out.println("\n");
 
 //        for(int i = 0; i < mammalsList.size(); i++){
@@ -56,6 +59,11 @@ public class Main {
 //        }
 
 //        mammalsList.forEach( (Mammals m) -> {System.out.println(m.getName());} );
+//        for(int i = 0; i < animalsList.size(); i++) {
+//            animalsList.forEach((Animals a) -> {
+//                System.out.println(Collections.sort(a.getDiscoveredYear()));
+//            });
+//        };
 //
 //        mammalsList.sort( (m1, m2) -> (m1.getDiscoveredYear() < m2.getDiscoveredYear()) ? -1 : 1 );
 //
@@ -63,21 +71,31 @@ public class Main {
 
 //        printFilteredAnimals(mammalsList, (m) -> m.getDiscoveredYear() > 1800);
 
-//        printFilteredAnimals(animalsList, (a) -> a.getType() == "Mammal");
-//        System.out.println("\n");
-//
-//        printFilteredAnimals(animalsList, (a) -> a.getType() == "Birds");
-//        System.out.println("\n");
-//
-//        printFilteredAnimals(animalsList, (a) -> a.getType() == "Fish");
-//        System.out.println("\n");
 
         System.out.println("MVP Requirements");
 
-        animalsList.sort( (a1, a2) -> (a1.getDiscoveredYear() < a2.getDiscoveredYear()) ? -1 : 1);
-
-//        animalsList.forEach( (Animals a) -> {System.out.println(a.getDiscoveredYear());} );
+        animalsList.sort( (a1, a2) -> a2.getDiscoveredYear() - a1.getDiscoveredYear() );
         System.out.println("\n");
+
+        animalsList.sort( (a1, a2) -> a1.getName().compareToIgnoreCase(a2.getName()));
+        System.out.println("\n");
+
+        printFilteredAnimals(animalsList, (a) -> a.getDiscoveredYear() == 1758);
+        System.out.println("\n 1758");
+
+        animalsList.sort( (a1, a2) -> a1.getMove().compareToIgnoreCase(a2.getMove()));
+        System.out.println("\n");
+
+        printFilteredAnimals(animalsList, (a) -> a.getBreath() == "lungs");
+        System.out.println("\n");
+
+        printFilteredAnimals(animalsList, (a) -> a.getBreath() == "lungs" && a.getDiscoveredYear() == 1758);
+        System.out.println("\n");
+
+        printFilteredAnimals(animalsList, (a) -> a.getBreath() == "lungs" && a.getReproduce() == "eggs");
+        System.out.println("\n");
+
+
 
 
         printFilteredAnimals(animalsList, (a) -> a.getType() == "Mammal");
@@ -89,13 +107,20 @@ public class Main {
         printFilteredAnimals(animalsList, (a) -> a.getType() == "Fish");
         System.out.println("\n");
 
+//        ArrayList.sort(animalsList);
+
+//        System.out.println(animalsList.getName());
     }
 
-    public static void printFilteredAnimals(List<Animals> animalsList, AnimalsTester animalsTester){
+    public static void printFilteredAnimals(ArrayList<Animals> animalsList, AnimalsTester animalsTester){
         for (Animals a : animalsList){
             if(animalsTester.test(a)){
+//                System.out.printlin(animalsList.sort( (a1, a2) -> a1.getName().compareToIgnoreCase(a2.getName())));
+
                 System.out.println(a);
             }
         }
     }
+
+
 }
