@@ -23,6 +23,17 @@ public abstract class Animals{
     };
     // Getter and Setter
 
+//    Added getType for my Filtered List
+
+
+    public String getType() {
+        return type;
+    };
+
+    public void setType(String type) {
+        this.type = type;
+    };
+
     public int getId() {
         return id;
     };
