@@ -70,7 +70,10 @@ public class Main {
 //        mammalsList.forEach( (Mammals m) -> {System.out.println(m.getDiscoveredYear());} );
 
 //        printFilteredAnimals(mammalsList, (m) -> m.getDiscoveredYear() > 1800);
-
+        System.out.println("STRETCH");
+        
+        animalsList.sort( (a1, a2) -> a1.getName().compareToIgnoreCase(a2.getName()));
+        printFilteredAnimals(animalsList, (a) -> a.getType() == "Mammal");
 
         System.out.println("MVP Requirements");
 
